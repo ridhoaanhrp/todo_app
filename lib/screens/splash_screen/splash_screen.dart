@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:todo_app/screens/signin_screen/signin_screen.dart';
 import 'package:todo_app/screens/splash_screen/cubit/splash_screen_cubit.dart';
 import 'package:todo_app/screens/splash_screen/cubit/splash_screen_state.dart';
 import 'package:todo_app/services/navigation_service.dart';
@@ -14,12 +15,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final NavigationService _navigationService = NavigationService();
+  // final NavigationService _navigationService = NavigationService();
   SplashScreenCubit? _bloc;
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<SplashScreenCubit>(context);
+    _bloc = BlocProvider.of<SplashScreenCubit>(context);
     _bloc!.splashScreenLoaded();
   }
 
@@ -54,7 +55,9 @@ class _SplashScreenState extends State<SplashScreen> {
       }
 
       if (state is SplashScreenLoaded) {
-        _navigationService.navigateTo('/signin');
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => SigninScreen()));
+        // _navigationService.navigateTo('/signin');
       }
     });
   }

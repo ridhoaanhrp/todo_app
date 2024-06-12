@@ -6,7 +6,6 @@ class SplashScreenCubit extends Cubit<SplashScreenState> {
 
   splashScreenLoaded() async {
     try {
-      emit(SplashScreenInitial());
       await Future.delayed(const Duration(seconds: 2));
       emit(const SplashScreenLoaded());
     } catch (e) {

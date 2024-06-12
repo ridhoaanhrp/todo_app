@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/auth_container.dart';
 
-class SigninScreen extends StatefulWidget {
+class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
-}
-
-class _SigninScreenState extends State<SigninScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: Colors.lightGreen,
       body: SafeArea(
           child: Center(
-        child: AuthContainer(
-            emailController: emailController,
-            passwordController: passwordController),
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: AuthContainer(),
+        ),
       )),
     );
   }

@@ -4,14 +4,17 @@ import 'package:todo_app/widgets/custom_button.dart';
 import 'package:todo_app/widgets/custom_textfield.dart';
 import 'package:todo_app/widgets/spacing.dart';
 
-class AuthContainer extends StatelessWidget {
-  const AuthContainer(
-      {super.key,
-      required this.emailController,
-      required this.passwordController});
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
+class AuthContainer extends StatefulWidget {
+  const AuthContainer({super.key});
 
+  @override
+  State<AuthContainer> createState() => _AuthContainerState();
+}
+
+class _AuthContainerState extends State<AuthContainer> {
+  var _passVisible = true;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +24,36 @@ class AuthContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          CustomTextfield(controller: emailController),
-          CustomPasswordField(controller: passwordController),
+          Text(
+            'Login',
+            style: GoogleFonts.montserrat(
+                fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          VerticalSpacing(
+            height: 16,
+          ),
+          CustomTextfield(
+            controller: emailController,
+            label: "Email",
+          ),
+          VerticalSpacing(),
+          CustomPasswordField(
+            label: "Password",
+            controller: passwordController,
+            visible: _passVisible,
+            onPressed: () {
+              setState(() {
+                _passVisible = !_passVisible;
+              });
+            },
+          ),
           VerticalSpacing(),
           const CustomButton(text: 'Masuk'),
           VerticalSpacing(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Belum Punya Akun?',

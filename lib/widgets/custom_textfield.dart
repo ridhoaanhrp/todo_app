@@ -36,7 +36,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          (widget.label! != "")
+          (widget.label != null)
               ? Text(
                   widget.label!,
                   style: GoogleFonts.montserrat(fontSize: 12),
@@ -51,7 +51,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             cursorColor: Colors.lightGreen,
             decoration: InputDecoration(
               filled: true,
-              fillColor: (widget.readOnly!) ? Colors.white : Colors.grey,
+              fillColor: (widget.readOnly!) ? Colors.grey : Colors.white,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
@@ -72,7 +72,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(color: Colors.red, width: 2.0),
               ),
-              hintText: widget.hintText!,
+              hintText: widget.hintText,
               hintStyle: GoogleFonts.montserrat(
                   fontSize: 10, color: Colors.lightGreenAccent),
               counterText: '',
@@ -92,7 +92,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
 class CustomPasswordField extends StatelessWidget {
   const CustomPasswordField(
       {super.key,
-      this.visible,
+      required this.visible,
       this.label,
       this.hintText,
       this.type,
@@ -100,7 +100,7 @@ class CustomPasswordField extends StatelessWidget {
       this.onChanged,
       required this.controller,
       this.validator});
-  final bool? visible;
+  final bool visible;
   final String? label;
   final String? hintText;
   final TextInputType? type;
@@ -115,10 +115,12 @@ class CustomPasswordField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label!,
-            style: GoogleFonts.montserrat(fontSize: 12),
-          ),
+          (label != null)
+              ? Text(
+                  label!,
+                  style: GoogleFonts.montserrat(fontSize: 12),
+                )
+              : Container(),
           VerticalSpacing(),
           TextFormField(
             controller: controller,
@@ -142,7 +144,7 @@ class CustomPasswordField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(color: Colors.red, width: 2.0),
               ),
-              hintText: hintText!,
+              hintText: (hintText == null) ? "" : hintText,
               hintStyle: GoogleFonts.montserrat(
                   fontSize: 10, color: Colors.lightGreenAccent),
               counterText: '',
@@ -163,8 +165,8 @@ class CustomPasswordField extends StatelessWidget {
             ),
             keyboardType: type,
             validator: validator,
-            obscureText: visible!,
-            onChanged: onChanged!,
+            obscureText: visible,
+            onChanged: onChanged,
           ),
           VerticalSpacing(),
         ],
