@@ -11,7 +11,7 @@ class SigninScreen extends StatelessWidget {
       body: SafeArea(
           child: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(10),
           child: AuthContainer(),
         ),
       )),

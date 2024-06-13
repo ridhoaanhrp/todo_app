@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/screens/signin_screen/signin_screen.dart';
-import 'package:todo_app/screens/splash_screen/cubit/splash_screen_cubit.dart';
-import 'package:todo_app/screens/splash_screen/cubit/splash_screen_state.dart';
+import 'package:todo_app/blocs/splash_screen_cubit/splash_screen_cubit.dart';
+import 'package:todo_app/blocs/splash_screen_cubit/splash_screen_state.dart';
 import 'package:todo_app/services/navigation_service.dart';
 import 'package:todo_app/widgets/loading_widget.dart';
 

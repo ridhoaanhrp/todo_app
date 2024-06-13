@@ -39,7 +39,8 @@ class _CustomTextfieldState extends State<CustomTextfield> {
           (widget.label != null)
               ? Text(
                   widget.label!,
-                  style: GoogleFonts.montserrat(fontSize: 12),
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14, fontWeight: FontWeight.w700),
                 )
               : Container(),
           VerticalSpacing(
@@ -50,35 +51,35 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             controller: widget.controller,
             cursorColor: Colors.lightGreen,
             decoration: InputDecoration(
-              filled: true,
-              fillColor: (widget.readOnly!) ? Colors.grey : Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                    color: Colors.lightGreen,
-                    width: widget.readOnly! ? 0 : 2.0),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: Colors.red, width: 2.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                    color: Colors.lightGreen,
-                    width: widget.readOnly! ? 0 : 1.0),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: Colors.red, width: 2.0),
-              ),
-              hintText: widget.hintText,
-              hintStyle: GoogleFonts.montserrat(
-                  fontSize: 10, color: Colors.lightGreenAccent),
-              counterText: '',
-              errorStyle:
-                  GoogleFonts.montserrat(fontSize: 10, color: Colors.red),
-            ),
+                filled: true,
+                fillColor: (widget.readOnly!) ? Colors.grey : Colors.white,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                      color: Colors.lightGreen,
+                      width: widget.readOnly! ? 0 : 2.0),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(color: Colors.red, width: 2.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                      color: Colors.lightGreen,
+                      width: widget.readOnly! ? 0 : 1.0),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(color: Colors.red, width: 2.0),
+                ),
+                hintText: widget.hintText,
+                hintStyle: GoogleFonts.montserrat(
+                    fontSize: 10, color: Colors.lightGreenAccent),
+                counterText: '',
+                errorStyle:
+                    GoogleFonts.montserrat(fontSize: 10, color: Colors.red),
+                suffixIcon: widget.icon),
             keyboardType: widget.type,
             onChanged: widget.onChange,
             validator: widget.validator,
@@ -118,14 +119,14 @@ class CustomPasswordField extends StatelessWidget {
           (label != null)
               ? Text(
                   label!,
-                  style: GoogleFonts.montserrat(fontSize: 12),
+                  style: GoogleFonts.montserrat(
+                      fontSize: 14, fontWeight: FontWeight.w700),
                 )
               : Container(),
           VerticalSpacing(),
           TextFormField(
             controller: controller,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:

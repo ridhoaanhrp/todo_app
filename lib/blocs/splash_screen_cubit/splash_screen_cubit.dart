@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_app/screens/splash_screen/cubit/splash_screen_state.dart';
+import 'package:todo_app/blocs/splash_screen_cubit/splash_screen_state.dart';
 
 class SplashScreenCubit extends Cubit<SplashScreenState> {
   SplashScreenCubit() : super(SplashScreenInitial());
